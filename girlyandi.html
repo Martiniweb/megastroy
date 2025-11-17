@@ -437,5 +437,90 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+    <script>
+function saveShoppingList() {
+    // Получаем данные из калькулятора
+    const heightInput = document.querySelector('.form-input');
+    const height = heightInput.value || 'не указана';
+    const diameterInput = document.querySelectorAll('.form-input')[1];
+    const diameter = diameterInput.value || 'не указан';
+    
+    // Получаем результаты расчетов
+    const resultItems = document.querySelectorAll('.result-value');
+    const toys = resultItems[0].textContent;
+    const garlands = resultItems[1].textContent;
+    const souvenirs = resultItems[2].textContent;
+    const figurines = resultItems[3].textContent;
+    
+    // Получаем выбранный вариант и цвет
+    const selectedVariant = document.querySelector('.product-variant.selected');
+    const variantName = selectedVariant ? selectedVariant.querySelector('.variant-button').textContent : 'не выбран';
+    
+    const selectedColor = document.querySelector('.color-option.active');
+    let colorName = 'не выбран';
+    if (selectedColor) {
+        if (selectedColor.classList.contains('gradient-color')) {
+            colorName = 'градиент';
+        } else {
+            // Можно добавить названия цветов, но пока просто "цвет"
+            colorName = 'выбранный цвет';
+        }
+    }
+    
+    // Получаем популярные товары (если есть в корзине)
+    const popularProducts = [];
+    document.querySelectorAll('.popular-product').forEach((product, index) => {
+        const productName = product.querySelector('.product-name').textContent;
+        const price = product.querySelector('.price-current').textContent;
+        popularProducts.push(`${index + 1}. ${productName} - ${price}`);
+    });
+    
+    // Создаем содержимое файла
+    const content = `НОВОГОДНИЙ СПИСОК ПОКУПОК\n
+=====================
+Данные елки:
+- Высота: ${height} м
+- Диаметр нижнего яруса: ${diameter} м
+
+Рекомендуемое количество:
+- Игрушки: ${toys}
+- Гирлянды: ${garlands}
+- Сувениры: ${souvenirs}
+- Фигурки: ${figurines}
+
+Выбранные параметры:
+- Вариант украшения: ${variantName}
+- Цветовая гамма: ${colorName}
+
+Рекомендуемые товары:
+${popularProducts.join('\n')}
+
+=====================
+Сгенерировано через "Ёлочный стратег"
+${new Date().toLocaleString('ru-RU')}`;
+
+    // Создаем и скачиваем файл
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `новогодний_список_${new Date().toISOString().split('T')[0]}.txt`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    
+    // Добавляем визуальную обратную связь
+    const btn = document.querySelector('.save-list-btn');
+    const originalText = btn.textContent;
+    btn.textContent = 'СПИСОК СОХРАНЕН!';
+    btn.style.background = 'rgba(25, 214, 55, 1)';
+    
+    setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = 'rgba(232, 69, 11, 1)';
+    }, 2000);
+}
+</script>
 </body>
 </html>
