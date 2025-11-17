@@ -21,4 +21,3 @@ function createSnowflakes() {
 }
 
 document.addEventListener('DOMContentLoaded', createSnowflakes);
-
