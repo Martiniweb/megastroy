@@ -1020,3 +1020,39 @@ css
     letter-spacing: 0px;
     text-align: left;
 }
+
+/* Исправление для результатов калькулятора */
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 31px; /* Фиксированная высота */
+}
+
+.result-value {
+    width: auto; /* Убираем фиксированную ширину */
+    min-width: 73px; /* Минимальная ширина */
+    height: 31px;
+    color: rgba(71, 85, 105, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0px;
+    text-align: right; /* Выравнивание по правому краю */
+    white-space: nowrap; /* Запрещаем перенос текста */
+}
+
+.result-label {
+    width: auto; /* Убираем фиксированную ширину */
+    min-width: 87px;
+    height: 26px;
+    color: rgba(71, 85, 105, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+    white-space: nowrap; /* Запрещаем перенос текста */
+}
