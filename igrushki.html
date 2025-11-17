@@ -462,22 +462,69 @@ function updateCalculations() {
         resultItems[3].textContent = '0 шт.';
     }
     
-    // Сохраняем результат игрушек и высоту
+    // Сохраняем результат игрушек, высоту и выбранный вариант
     localStorage.setItem('toysResult', results.toys);
     localStorage.setItem('treeHeight', height);
+    localStorage.setItem('selectedVariant', variantType);
+    
+    // Сохраняем выбранный цвет
+    const selectedColor = document.querySelector('.color-option.active');
+    if (selectedColor) {
+        if (selectedColor.classList.contains('gradient-color')) {
+            localStorage.setItem('selectedColor', 'gradient');
+        } else {
+            localStorage.setItem('selectedColor', selectedColor.style.backgroundColor);
+        }
+    }
+}
+
+// Функция для загрузки сохраненного состояния
+function loadSavedState() {
+    // Загружаем высоту
+    const savedHeight = localStorage.getItem('treeHeight');
+    const heightInput = document.querySelector('.form-input');
+    if (savedHeight && heightInput) {
+        heightInput.value = savedHeight;
+    }
+    
+    // Загружаем выбранный вариант игрушек
+    const savedVariant = localStorage.getItem('selectedVariant');
+    if (savedVariant) {
+        document.querySelectorAll('.product-variant').forEach(variant => {
+            variant.classList.remove('selected');
+            if (variant.classList.contains(savedVariant)) {
+                variant.classList.add('selected');
+            }
+        });
+    }
+    
+    // Загружаем выбранный цвет
+    const savedColor = localStorage.getItem('selectedColor');
+    if (savedColor) {
+        document.querySelectorAll('.color-option').forEach(option => {
+            option.classList.remove('active');
+            
+            if (savedColor === 'gradient' && option.classList.contains('gradient-color')) {
+                option.classList.add('active');
+            } else if (option.style.backgroundColor === savedColor) {
+                option.classList.add('active');
+            }
+        });
+    }
+    
+    // Обновляем изображение елки
+    updateTreeImage();
+    
+    // Если есть высота - пересчитываем
+    if (savedHeight && parseFloat(savedHeight) > 0) {
+        updateCalculations();
+    }
 }
 
 // Инициализация при загрузке
 document.addEventListener('DOMContentLoaded', function() {
-    // Устанавливаем высоту из localStorage
-    const savedHeight = setHeightFromStorage();
-    const savedToys = localStorage.getItem('toysResult');
-    
-    if (savedHeight && savedToys) {
-        updateCalculations();
-    } else {
-        resetCalculatorFields();
-    }
+    // Загружаем сохраненное состояние
+    loadSavedState();
     
     // Обработчик изменения высоты
     const heightInput = document.querySelector('.form-input');
@@ -498,11 +545,35 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.product-variant').forEach(v => v.classList.remove('selected'));
             this.classList.add('selected');
             
+            // Сохраняем выбор
+            localStorage.setItem('selectedVariant', this.classList[1]);
+            
             // Пересчитываем только если есть высота
             const heightInput = document.querySelector('.form-input');
             if (heightInput.value && heightInput.value > 0) {
                 updateCalculations();
             }
+            
+            // Обновляем изображение
+            updateTreeImage();
+        });
+    });
+    
+    // Обработчики для выбора цвета
+    document.querySelectorAll('.color-option').forEach(color => {
+        color.addEventListener('click', function() {
+            document.querySelectorAll('.color-option').forEach(c => c.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Сохраняем выбор цвета
+            if (this.classList.contains('gradient-color')) {
+                localStorage.setItem('selectedColor', 'gradient');
+            } else {
+                localStorage.setItem('selectedColor', this.style.backgroundColor);
+            }
+            
+            // Обновляем изображение
+            updateTreeImage();
         });
     });
 });
