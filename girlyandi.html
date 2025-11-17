@@ -349,7 +349,7 @@ function updateCalculations() {
         else if (garlandClass === 'premium') garlandType = 'vertical';
     }
     
-    // Выполняем расчет ТОЛЬКО гирлянд
+    // Выполняем расчет гирлянд
     const results = calculateGarlands(height, garlandType);
     
     // Обновляем диаметр
@@ -358,10 +358,13 @@ function updateCalculations() {
         diameterInput.value = results.diameter;
     }
     
+    // Получаем сохраненные данные игрушек
+    const savedToysData = getSavedToysData();
+    
     // Обновляем результаты
     const resultItems = document.querySelectorAll('.result-value');
     if (resultItems.length >= 4) {
-        resultItems[0].textContent = results.toys + ' шт.';
+        resultItems[0].textContent = savedToysData.toys + ' шт.';
         resultItems[1].textContent = results.garlands + ' м.';
         resultItems[2].textContent = '0 шт.';
         resultItems[3].textContent = '0 шт.';
@@ -372,17 +375,36 @@ function updateCalculations() {
     localStorage.setItem('treeHeight', height);
 }
 
+// Функция для загрузки сохраненного состояния
+function loadSavedState() {
+    // Загружаем высоту
+    const savedHeight = localStorage.getItem('treeHeight');
+    const heightInput = document.querySelector('.form-input');
+    if (savedHeight && heightInput) {
+        heightInput.value = savedHeight;
+    }
+    
+    // Загружаем выбранный тип гирлянды
+    const savedGarlandType = localStorage.getItem('selectedGarlandType');
+    if (savedGarlandType) {
+        document.querySelectorAll('.product-variant').forEach(variant => {
+            variant.classList.remove('selected');
+            if (variant.classList.contains(savedGarlandType)) {
+                variant.classList.add('selected');
+            }
+        });
+    }
+    
+    // Если есть высота - пересчитываем
+    if (savedHeight && parseFloat(savedHeight) > 0) {
+        updateCalculations();
+    }
+}
+
 // Инициализация при загрузке
 document.addEventListener('DOMContentLoaded', function() {
-    // Устанавливаем высоту из localStorage
-    const savedHeight = setHeightFromStorage();
-    const savedGarlands = localStorage.getItem('garlandsResult');
-    
-    if (savedHeight && savedGarlands) {
-        updateCalculations();
-    } else {
-        resetCalculatorFields();
-    }
+    // Загружаем сохраненное состояние
+    loadSavedState();
     
     // Обработчик изменения высоты
     const heightInput = document.querySelector('.form-input');
@@ -402,6 +424,9 @@ document.addEventListener('DOMContentLoaded', function() {
         variant.addEventListener('click', function() {
             document.querySelectorAll('.product-variant').forEach(v => v.classList.remove('selected'));
             this.classList.add('selected');
+            
+            // Сохраняем выбор гирлянды
+            localStorage.setItem('selectedGarlandType', this.classList[1]);
             
             // Пересчитываем только если есть высота
             const heightInput = document.querySelector('.form-input');
