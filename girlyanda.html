@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор гирлянд для елки</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a237e, #4a148c);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a237e;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #1a237e;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #1a237e;
+        }
+
+        .decor-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .decor-option {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .decor-option:hover {
+            border-color: #1a237e;
+            transform: translateY(-2px);
+        }
+
+        .decor-option.active {
+            border-color: #1a237e;
+            background: #e8eaf6;
+        }
+
+        .decor-option input {
+            display: none;
+        }
+
+        .decor-name {
+            font-weight: bold;
+            color: #1a237e;
+            margin-bottom: 5px;
+        }
+
+        .decor-desc {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .results {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .result-card {
+            background: #e8eaf6;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            border-left: 4px solid #1a237e;
+            min-width: 250px;
+        }
+
+        .result-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1a237e;
+            margin: 15px 0;
+        }
+
+        .result-label {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .visualization {
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .tree-visual {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #666;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: #1a237e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #283593;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎄 Калькулятор гирлянд</h1>
+        <div class="subtitle">Расчет длины гирлянд для новогодней елки</div>
+        
+        <div class="form-group">
+            <label for="height">Высота елки (метры):</label>
+            <input type="number" id="height" min="0.5" max="8" step="0.1" value="1">
+        </div>
+
+        <div class="form-group">
+            <label for="diameter">Диаметр нижнего яруса (метры):</label>
+            <input type="number" id="diameter" min="0.3" max="6.5" step="0.1" value="0.65" readonly>
+        </div>
+
+        <div class="form-group">
+            <label>Способ декора:</label>
+            <div class="decor-types">
+                <label class="decor-option active">
+                    <input type="radio" name="decorType" value="spiral" checked>
+                    <div class="decor-name">Спираль</div>
+                    <div class="decor-desc">Классическое обвивание</div>
+                </label>
+                <label class="decor-option">
+                    <input type="radio" name="decorType" value="doubleSpiral">
+                    <div class="decor-name">Двойная спираль</div>
+                    <div class="decor-desc">Две гирлянды в разном направлении</div>
+                </label>
+                <label class="decor-option">
+                    <input type="radio" name="decorType" value="vertical">
+                    <div class="decor-name">Вертикаль</div>
+                    <div class="decor-desc">Спуск сверху вниз</div>
+                </label>
+            </div>
+        </div>
+
+        <div class="results">
+            <div class="result-card">
+                <div class="result-label">Длина гирлянды</div>
+                <div class="result-value" id="garland-length">10 м</div>
+                <div class="result-label" id="garland-type">Спираль</div>
+            </div>
+        </div>
+
+        <div class="visualization">
+            <div class="tree-visual" id="tree-visual">🎄</div>
+            <div id="visual-desc">Елка 1м со спиральной гирляндой</div>
+        </div>
+
+        <div class="note">
+            * Расчеты основаны на стандартных пропорциях новогодних елок<br>
+            * Учитывайте запас 10-15% для надежного крепления
+        </div>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-btn">← К игрушкам</a>
+            <button onclick="window.print()" class="nav-btn">🖨️ Печать</button>
+        </div>
+    </div>
+
+    <script>
+        // Точные данные для гирлянд
+        const garlandData = {
+            diameters: {
+                1: 0.65,
+                1.5: 0.975,
+                2: 1.3,
+                2.5: 1.625,
+                3: 1.95,
+                4: 2.2
+            },
+            lengths: {
+                1: { spiral: 10, doubleSpiral: 15, vertical: 15 },
+                1.5: { spiral: 15, doubleSpiral: 25, vertical: 25 },
+                2: { spiral: 25, doubleSpiral: 45, vertical: 45 },
+                2.5: { spiral: 35, doubleSpiral: 65, vertical: 75 },
+                3: { spiral: 50, doubleSpiral: 95, vertical: 100 },
+                4: { spiral: 70, doubleSpiral: 140, vertical: 145 }
+            }
+        };
+
+        // Названия типов декора
+        const decorNames = {
+            spiral: "Спираль",
+            doubleSpiral: "Двойная спираль", 
+            vertical: "Вертикаль"
+        };
+
+        // Расчет диаметра
+        function calculateDiameter(height) {
+            if (height === 4) return 2.2;
+            return height * 0.65;
+        }
+
+        // Получение длины гирлянды
+        function getGarlandLength(height, decorType) {
+            const heights = [1, 1.5, 2, 2.5, 3, 4];
+            
+            // Если точное значение есть - возвращаем его
+            if (garlandData.lengths[height]) {
+                return garlandData.lengths[height][decorType];
+            }
+            
+            // Находим ближайшие известные высоты
+            let lower = heights[0];
+            let upper = heights[heights.length - 1];
+            
+            for (let i = 0; i < heights.length - 1; i++) {
+                if (height >= heights[i] && height <= heights[i + 1]) {
+                    lower = heights[i];
+                    upper = heights[i + 1];
+                    break;
+                }
+            }
+            
+            // Линейная интерполяция
+            const ratio = (height - lower) / (upper - lower);
+            const lowerValue = garlandData.lengths[lower][decorType];
+            const upperValue = garlandData.lengths[upper][decorType];
+            
+            return Math.round(lowerValue + ratio * (upperValue - lowerValue));
+        }
+
+        // Визуализация елки
+        function getTreeVisual(height) {
+            if (height <= 1) return "🎄";
+            if (height <= 2) return "🎄";
+            if (height <= 3) return "🌲";
+            return "🌲";
+        }
+
+        // Обновление расчетов
+        function updateCalculations() {
+            const height = parseFloat(document.getElementById('height').value);
+            const decorType = document.querySelector('input[name="decorType"]:checked').value;
+            
+            const diameter = calculateDiameter(height);
+            const length = getGarlandLength(height, decorType);
+            
+            // Обновляем диаметр
+            document.getElementById('diameter').value = diameter.toFixed(3);
+            
+            // Обновляем результаты
+            document.getElementById('garland-length').textContent = length + ' м';
+            document.getElementById('garland-type').textContent = decorNames[decorType];
+            
+            // Обновляем визуализацию
+            document.getElementById('tree-visual').textContent = getTreeVisual(height);
+            document.getElementById('visual-desc').textContent = 
+                `Елка ${height}м с ${decorNames[decorType].toLowerCase()}ной гирляндой`;
+        }
+
+        // Обработчики событий для декора
+        document.querySelectorAll('.decor-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.decor-option').forEach(opt => {
+                    opt.classList.remove('active');
+                });
+                this.classList.add('active');
+                this.querySelector('input').checked = true;
+                updateCalculations();
+            });
+        });
+
+        document.getElementById('height').addEventListener('input', updateCalculations);
+
+        // Инициализация
+        updateCalculations();
+    </script>
+</body>
+</html>

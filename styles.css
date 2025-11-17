@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 1440px;
+    height: 1024px;
+    background-color: rgba(229, 74, 33, 1);
+    position: relative;
+    overflow: auto;
+    min-width: 1440px;
+    min-height: 1024px;
+}
+
+/* Анимация снежинок */
+@keyframes snowfall {
+    0% { transform: translateY(-100px) rotate(0deg); }
+    100% { transform: translateY(1024px) rotate(360deg); }
+}
+
+.snowflake {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: snowfall linear infinite;
+    top: 0;
+}
+
+.home-image {
+    width: 731px;
+    height: 830px;
+    position: absolute;
+    left: 141px;
+    bottom: 51px;
+    transition: transform 0.3s ease; /* Добавь эту строку */
+}
+
+.home-image:hover {
+    transform: scale(1.02); /* Добавь этот блок */
+}
+
+.title {
+    width: 692px;
+    height: 124px;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 58px;
+    letter-spacing: 0px;
+    text-align: left;
+    position: absolute;
+    top: 277px;
+    left: 800px;
+    right: 98px;
+    bottom: 623px;
+}
+
+.subtitle {
+    width: 700px;
+    height: 180px;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 34px;
+    letter-spacing: 0px;
+    text-align: left;
+    position: absolute;
+    top: 430px;
+    left: 800px;
+}
+
+.cta-button {
+    width: 320px;
+    height: 59px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 43px;
+    border: none;
+    border-radius: 7px;
+    box-shadow: 0px 9px 20px -3px rgba(91, 107, 58, 0.33);
+    background: rgba(255, 255, 255, 1);
+    color: rgba(229, 74, 33, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: capitalize;
+    position: absolute;
+    top: 650px;
+    left: 800px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px) scale(1.05); /* Добавил scale(1.05) */
+    box-shadow: 0px 12px 25px -3px rgba(91, 107, 58, 0.45);
+    background: rgba(245, 245, 245, 1);
+}
+
+.cta-button:active {
+    transform: translateY(0px);
+    box-shadow: 0px 5px 15px -3px rgba(91, 107, 58, 0.33);
+}

@@ -1,0 +1,1022 @@
+
+
+/* Уменьшение масштаба для лучшего отображения */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 1);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    transform: scale(0.8); /* Уменьшение на 10% */
+    transform-origin: top center;
+}
+
+.container {
+    width: 1439px;
+    height: 3436px;
+    position: relative;
+}
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 1);
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 1439px;
+    height: 3436px;
+    position: relative;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.sidebar {
+    width: 253px;
+    height: 2093px;
+    background: rgba(255, 255, 255, 1);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.avatar-container {
+    width: 141px;
+    height: 141px;
+    box-sizing: border-box;
+    border: 1px solid rgba(47, 128, 237, 1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    position: absolute;
+    left: 69px;
+    top: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.santa-avatar {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+}
+
+.username {
+    width: 129px;
+    height: 21px;
+    color: rgba(133, 133, 133, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0%;
+    text-align: center;
+    position: absolute;
+    left: 74px;
+    top: 180px;
+}
+
+.sidebar-nav {
+    position: absolute;
+    top: 230px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.nav-item {
+    width: 239px;
+    height: 49px;
+    background: rgba(232, 69, 11, 0);
+    position: relative;
+    left: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.3s ease;
+}
+
+.nav-item.active {
+    background: rgba(232, 69, 11, 0.8);
+}
+
+.nav-item:not(.active):hover {
+    background: rgba(232, 69, 11, 0.3);
+}
+
+.nav-indicator {
+    width: 4px;
+    height: 49px;
+    border-radius: 0px 2px 2px 0px;
+    box-shadow: 2px 0px 10px 2px rgba(106, 91, 255, 0.16);
+    background: rgba(255, 215, 73, 1);
+    order: 2;
+}
+
+.nav-text {
+    width: 135px;
+    height: 21px;
+    opacity: 0.9;
+    color: rgba(123, 123, 123, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-left: 15px;
+    order: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.nav-item.active .nav-text {
+    color: rgba(255, 255, 255, 1);
+}
+
+.nav-text::before {
+    content: '';
+    display: block;
+    width: 39px;
+    height: 39px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+}
+
+.nav-item:nth-child(1) .nav-text::before {
+    background-image: url('images/ball.svg');
+}
+
+.nav-text.girlyanda::before {
+    background-image: url('images/giricon.svg');
+}
+
+.nav-text.suveniri::before {
+    background-image: url('images/suvicon.svg');
+}
+
+.nav-text.figurki::before {
+    background-image: url('images/figicon.svg');
+}
+
+.search-container {
+    position: absolute;
+    top: 34px;
+    left: 340px;
+}
+
+.search-box {
+    width: 593px;
+    height: 52px;
+    border-radius: 10px;
+    background: rgba(232, 232, 232, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 15px;
+}
+
+.search-icon {
+    width: 24px;
+    height: 24px;
+    color: rgba(123, 123, 123, 1);
+}
+
+.search-input {
+    width: 100%;
+    height: 18px;
+    color: rgba(123, 123, 123, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0%;
+    text-align: left;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: rgba(123, 123, 123, 1);
+}
+
+.snow-toggle {
+    position: absolute;
+    top: 34px;
+    left: 1000px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-container {
+    width: 75px;
+    height: 52px;
+    border-radius: 26px;
+    background: rgba(232, 232, 232, 1);
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+}
+
+.toggle-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-handle {
+    width: 39px;
+    height: 39px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.handle-icon {
+    width: 26px;
+    height: 26px;
+}
+
+.toggle-container.active .toggle-handle {
+    transform: translateX(30px);
+}
+
+.toggle-container.active .handle-icon {
+    content: url('images/snejinka.svg');
+    width: 25px;
+    height: 26px;
+}
+
+.logout {
+    position: absolute;
+    top: 35px;
+    left: 1350px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    height: 52px;
+}
+
+.exit-icon {
+    width: 22px;
+    height: 20px;
+    fill: rgba(232, 69, 11, 1);
+    display: block;
+}
+
+.exit-text {
+    width: 59px;
+    height: 19px;
+    color: rgba(232, 69, 11, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.product-card {
+    width: 454px;
+    height: 556px;
+    position: absolute;
+    left: 400px;
+    top: 120px;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-title {
+    width: 385px;
+    height: 36px;
+    color: rgba(0, 0, 0, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 34px;
+    letter-spacing: 0%;
+    text-align: left;
+    position: absolute;
+    left: 340px;
+    top: 690px;
+}
+
+/* Специфичные стили для гирлянд */
+.product-variant {
+    width: 178px;
+    height: 213px;
+    box-sizing: border-box;
+    border: 1px solid rgba(232, 69, 11, 1);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 1);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.product-variant:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(232, 69, 11, 0.2);
+    border-width: 2px;
+}
+
+.product-variant.selected {
+    width: 217px;
+    height: 260px;
+    border: 3px solid rgba(232, 69, 11, 1);
+    box-shadow: 0 0 20px rgba(232, 69, 11, 0.4);
+    transform: scale(1.05);
+    z-index: 10;
+    padding: 20px 15px;
+}
+
+.product-variant.economy {
+    left: 340px;
+    top: 740px;
+}
+
+.product-variant.economy.selected {
+    left: 330px;
+}
+
+.product-variant.standard {
+    left: 558px;
+    top: 740px;
+}
+
+.product-variant.standard.selected {
+    left: 548px;
+}
+
+.product-variant.premium {
+    left: 776px;
+    top: 740px;
+}
+
+.product-variant.premium.selected {
+    left: 766px;
+}
+
+.variant-image {
+    width: 110px;
+    height: 140px;
+    object-fit: contain;
+    object-position: center top;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.product-variant.selected .variant-image {
+    width: 180px;
+    height: 180px;
+    object-position: center top;
+}
+
+.variant-button {
+    width: auto;
+    min-width: 66px;
+    height: 26px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 3px 10px;
+    box-sizing: border-box;
+    border: 1px solid rgba(232, 69, 11, 1);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.variant-button:hover {
+    background: rgba(232, 69, 11, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+@keyframes snowfall {
+    0% { transform: translateY(-100px) rotate(0deg); }
+    100% { transform: translateY(3436px) rotate(360deg); }
+}
+
+.snowflake {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: snowfall linear infinite;
+    top: 0;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.popular-products-title {
+    width: 242px;
+    height: 31px;
+    color: rgba(0, 0, 0, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29px;
+    letter-spacing: 0%;
+    text-align: left;
+    position: absolute;
+    left: 340px;
+    top: 1021px;
+}
+
+.popular-product {
+    position: absolute;
+    left: 340px;
+    top: 1050px;
+}
+
+.second-product {
+    left: 564px;
+}
+
+.third-product {
+    left: 788px;
+}
+
+.product-container {
+    width: 184px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-photo {
+    width: 175px;
+    height: 173px;
+    object-fit: cover;
+}
+
+.product-code {
+    width: 93px;
+    height: 15px;
+    color: rgba(123, 123, 123, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.product-name {
+    width: 179px;
+    height: 29px;
+    color: rgba(0, 0, 0, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 90%;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-top: 4px;
+}
+
+.rating {
+    margin-top: 9px;
+}
+
+.star-icon {
+    width: 65.91px;
+    height: 9.74px;
+}
+
+.availability {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 12px;
+}
+
+.check-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.availability-text {
+    width: 47px;
+    height: 12px;
+    color: rgba(47, 128, 237, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 13px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.price-current {
+    width: 150px;
+    height: 22px;
+    color: rgba(51, 51, 51, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: justify;
+    margin-top: 5px;
+}
+
+.price-old-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 7px;
+}
+
+.price-old {
+    width: 85px;
+    height: 15px;
+    color: rgba(123, 123, 123, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0%;
+    text-align: justify;
+    text-decoration-line: line-through;
+}
+
+.discount-badge {
+    width: 45px;
+    height: 20px;
+    border-radius: 4px;
+    background: rgba(232, 69, 11, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.discount-text {
+    width: 40px;
+    height: 14px;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
+.add-to-cart-btn {
+    width: 164px;
+    height: 58px;
+    border-radius: 5px;
+    background: rgba(232, 69, 11, 1);
+    border: none;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0%;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background: rgba(200, 50, 0, 1);
+}
+
+.calculation-container {
+    position: absolute;
+    width: 410px;
+    height: 390px;
+    left: 1000px;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 14px;
+}
+
+.form-input {
+    width: 410px;
+    height: 46px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: rgba(241, 245, 249, 1);
+    border: none;
+    color: rgba(148, 163, 184, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0%;
+    text-align: left;
+    outline: none;
+}
+
+.form-input::placeholder {
+    color: rgba(148, 163, 184, 1);
+}
+
+.results-section {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result-label {
+    width: 87px;
+    height: 26px;
+    color: rgba(71, 85, 105, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.result-value {
+    width: 73px;
+    height: 31px;
+    color: rgba(71, 85, 105, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.save-list-btn {
+    width: 186px;
+    height: 45px;
+    border-radius: 5px;
+    background: rgba(232, 69, 11, 1);
+    border: none;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 45px;
+    letter-spacing: 0px;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+.save-list-btn:hover {
+    background: rgba(200, 50, 0, 1);
+}
+
+.calculation-note {
+    width: 358px;
+    height: 11px;
+    color: rgba(123, 123, 123, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 13px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.recommendations-container {
+    position: absolute;
+    width: 417px;
+    height: 710px;
+    left: 1000px;
+    top: 650px;
+    display: flex;
+    flex-direction: column;
+}
+
+.recommendations-title {
+    width: 165px;
+    height: 31px;
+    color: rgba(0, 0, 0, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29px;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-bottom: 31px;
+}
+
+.recommended-product {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.product-image-container {
+    position: relative;
+    width: 137px;
+    height: 137px;
+}
+
+.recommended-photo {
+    width: 127px;
+    height: 127px;
+    object-fit: cover;
+}
+
+.product-number {
+    position: absolute;
+    top: 0;
+    right: -25px;
+    width: 24px;
+    height: 24px;
+    background: rgba(232, 69, 11, 1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+    justify-content: center;
+    height: 137px;
+    width: auto;
+    min-width: 230px;
+}
+
+.recommended-product-name {
+    width: 230px;
+    height: auto;
+    min-height: 23px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    color: rgba(0, 0, 0, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.product-color {
+    width: 52px;
+    height: 21px;
+    color: rgba(72, 72, 72, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.recommended-price {
+    width: 103px;
+    height: 21px;
+    color: rgba(232, 69, 11, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 16px;
+    font-weight: 450;
+    line-height: 19px;
+    letter-spacing: 0%;
+    text-align: right;
+    margin-top: -5px;
+    align-self: flex-end;
+    margin-right: 0;
+}
+
+.second-recommended {
+    margin-top: 22px;
+}
+
+.third-recommended {
+    margin-top: 22px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.page-transition.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.sidebar, .search-container, .snow-toggle, .logout,
+.product-card, .product-title, .popular-products-title,
+.product-variant, .popular-product, .calculation-container,
+.recommendations-container {
+    transition: all 0.3s ease;
+}
+
+/* Добавьте этот код в конец файлов */
+
+.nav-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Убедитесь, что у навигационных текстов нет подчеркивания */
+.nav-text {
+    text-decoration: none !important;
+}
+
+/* Стили для иконок в навигации */
+.nav-item.active .nav-text::before {
+    filter: brightness(0) invert(1); /* Делает SVG белым */
+}
+
+.nav-item:not(.active) .nav-text::before {
+    filter: brightness(0) invert(0.48); /* Делает SVG серым (7B7B7B) */
+}
+
+/* Цвет текста для активного состояния */
+.nav-item.active .nav-text {
+    color: rgba(255, 255, 255, 1) !important;
+}
+
+/* Цвет текста для неактивного состояния */
+.nav-item:not(.active) .nav-text {
+    color: rgba(123, 123, 123, 1) !important;
+}
+
+css
+.avatar-container {
+    pointer-events: none; /* Отключает все события мыши */
+}
+
+.santa-avatar {
+    pointer-events: none; /* Отключает события для изображения */
+}
+
+css
+.search-input:focus::placeholder {
+    color: transparent;
+}
+
+.form-input:focus::placeholder {
+    color: transparent;
+}
+
+/* Стили для полей ввода калькулятора */
+.form-input {
+    width: 410px;
+    height: 46px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: rgba(241, 245, 249, 1);
+    border: none;
+    color: rgba(71, 85, 105, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0%;
+    text-align: left;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+    color: rgba(148, 163, 184, 1);
+    opacity: 1; /* Убедимся, что плейсхолдер виден */
+}
+
+.form-input:focus {
+    background: rgba(232, 240, 254, 1);
+    border: 1px solid rgba(47, 128, 237, 1);
+}
+
+.form-input:focus::placeholder {
+    color: rgba(148, 163, 184, 0.7); /* Немного прозрачный при фокусе */
+}
+
+.form-input:read-only {
+    background: rgba(248, 249, 250, 1);
+    color: rgba(108, 117, 125, 1);
+    cursor: not-allowed;
+}
+
+/* Стили для результатов */
+.result-value {
+    width: 73px;
+    height: 31px;
+    color: rgba(71, 85, 105, 1);
+    font-family: 'TT Megastroy', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0px;
+    text-align: left;
+}

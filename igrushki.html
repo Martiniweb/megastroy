@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расчет украшений</title>
+    <link rel="stylesheet" href="styles-igrushki.css">
+    <script src="image-mapper.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="avatar-container">
+                <img src="images/santa.png" alt="Santa" class="santa-avatar">
+            </div>
+            <div class="username">Ёлочный стратег</div>
+            <nav class="sidebar-nav">
+                <div class="nav-item active">
+                    <span class="nav-text">Елочные игрушки</span>
+                    <div class="nav-indicator"></div>
+                </div>
+                <div class="nav-item">
+                    <a href="girlyandi.html" class="nav-link">
+                        <span class="nav-text girlyanda">Гирлянды</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-text suveniri">Сувениры</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-text figurki">Фигурки</span>
+                </div>
+            </nav>
+        </div>
+
+        <div class="search-container">
+            <div class="search-box">
+                <img src="images/search.svg" alt="Search" class="search-icon">
+                <input type="text" class="search-input" placeholder="Поиск">
+            </div>
+        </div>
+
+        <div class="snow-toggle">
+            <div class="toggle-container" id="snowToggle">
+                <div class="toggle-track">
+                    <div class="toggle-handle">
+                        <img src="images/moon.svg" alt="Moon" class="handle-icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="logout">
+            <img src="images/exit.svg" alt="Exit" class="exit-icon">
+            <span class="exit-text">ВЫХОД</span>
+        </div>
+
+        <div class="product-card">
+            <img src="images/elkapustaya.png" alt="Елка пушистая" class="product-image" id="mainProductImage">
+        </div>
+
+        <div class="product-title">Количество игрушек на елку</div>
+        <div class="color-scheme-title">Цветовая гамма</div>
+        <div class="popular-products-title">Популярные товары</div>
+
+        <div class="color-picker-container">
+            <div class="color-option active" style="background: rgba(255, 215, 73, 1)"></div>
+            <div class="color-option" style="background: rgba(181, 75, 15, 1)"></div>
+            <div class="color-option" style="background: rgba(229, 232, 242, 1)"></div>
+            <div class="color-option" style="background: rgba(21, 227, 227, 1)"></div>
+            <div class="color-option" style="background: rgba(201, 48, 255, 1)"></div>
+            <div class="color-option" style="background: rgba(255, 0, 245, 1)"></div>
+            <div class="color-option" style="background: rgba(25, 214, 55, 1)"></div>
+            <div class="color-option" style="background: rgba(244, 16, 16, 1)"></div>
+            <div class="color-option gradient-color"></div>
+        </div>
+
+        <div class="product-variant economy">
+            <img src="images/econom.png" alt="Эконом" class="variant-image">
+            <button class="variant-button">Эконом</button>
+        </div>
+
+        <div class="product-variant standard">
+            <img src="images/standart.png" alt="Стандарт" class="variant-image">
+            <button class="variant-button">Стандарт</button>
+        </div>
+
+        <div class="product-variant premium">
+            <img src="images/premium.png" alt="Премиум" class="variant-image">
+            <button class="variant-button">Премиум</button>
+        </div>
+
+        <!-- Популярные товары -->
+        <div class="popular-product">
+            <div class="product-container">
+                <img src="images/image4.png" alt="Набор шаров" class="product-photo">
+                <div class="product-code">Код: 478043</div>
+                <div class="product-name">Набор шаров 16шт 4 см, золото</div>
+                <div class="rating">
+                    <img src="images/star.svg" alt="Рейтинг" class="star-icon">
+                </div>
+                <div class="availability">
+                    <img src="images/check.svg" alt="В наличии" class="check-icon">
+                    <span class="availability-text">Наличие</span>
+                </div>
+                <div class="price-current">239 ₽ / набор</div>
+                <div class="price-old-container">
+                    <div class="price-old">295 ₽/ набор</div>
+                    <div class="discount-badge">
+                        <span class="discount-text">-19%</span>
+                    </div>
+                </div>
+                <button class="add-to-cart-btn">В корзину</button>
+            </div>
+        </div>
+
+        <div class="popular-product second-product">
+            <div class="product-container">
+                <img src="images/image4.png" alt="Набор шаров" class="product-photo">
+                <div class="product-code">Код: 478043</div>
+                <div class="product-name">Набор шаров 16шт 4 см, золото</div>
+                <div class="rating">
+                    <img src="images/star.svg" alt="Рейтинг" class="star-icon">
+                </div>
+                <div class="availability">
+                    <img src="images/check.svg" alt="В наличии" class="check-icon">
+                    <span class="availability-text">Наличие</span>
+                </div>
+                <div class="price-current">239 ₽ / набор</div>
+                <div class="price-old-container">
+                    <div class="price-old">295 ₽/ набор</div>
+                    <div class="discount-badge">
+                        <span class="discount-text">-19%</span>
+                    </div>
+                </div>
+                <button class="add-to-cart-btn">В корзину</button>
+            </div>
+        </div>
+
+        <div class="popular-product third-product">
+            <div class="product-container">
+                <img src="images/image4.png" alt="Набор шаров" class="product-photo">
+                <div class="product-code">Код: 478043</div>
+                <div class="product-name">Набор шаров 16шт 4 см, золото</div>
+                <div class="rating">
+                    <img src="images/star.svg" alt="Рейтинг" class="star-icon">
+                </div>
+                <div class="availability">
+                    <img src="images/check.svg" alt="В наличии" class="check-icon">
+                    <span class="availability-text">Наличие</span>
+                </div>
+                <div class="price-current">239 ₽ / набор</div>
+                <div class="price-old-container">
+                    <div class="price-old">295 ₽/ набор</div>
+                    <div class="discount-badge">
+                        <span class="discount-text">-19%</span>
+                    </div>
+                </div>
+                <button class="add-to-cart-btn">В корзину</button>
+            </div>
+        </div>
+
+        <div class="calculation-container">
+            <div class="input-group">
+                <input type="text" class="form-input" placeholder="Высота ёлки">
+            </div>
+            <div class="input-group">
+                <input type="text" class="form-input" placeholder="Диаметр нижнего яруса">
+            </div>
+            
+            <div class="results-section">
+                <div class="result-item">
+                    <span class="result-label">Игрушки</span>
+                    <span class="result-value">0 шт.</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Гирлянды</span>
+                    <span class="result-value">0 м.</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Сувениры</span>
+                    <span class="result-value">0 шт.</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Фигурки</span>
+                    <span class="result-value">0 шт.</span>
+                </div>
+            </div>
+            
+            <button class="save-list-btn">СОХРАНИТЬ СПИСОК</button>
+            <div class="calculation-note">Расчеты основаны на стандартных пропорциях новогодних елок</div>
+        </div>
+
+        <div class="recommendations-container">
+            <div class="recommendations-title">Рекомендуем</div>
+            
+            <div class="recommended-product">
+                <div class="product-image-container">
+                    <img src="images/rec1.png" alt="Набор шаров" class="recommended-photo">
+                    <div class="product-number">1</div>
+                </div>
+                <div class="product-info">
+                    <div class="recommended-product-name">Набор шаров 24шт 6см</div>
+                    <div class="product-color">золото</div>
+                    <div class="recommended-price">595₽ / набор</div>
+                </div>
+            </div>
+
+            <div class="recommended-product second-recommended">
+                <div class="product-image-container">
+                    <img src="images/rec2.png" alt="Елка искусственная" class="recommended-photo">
+                    <div class="product-number">2</div>
+                </div>
+                <div class="product-info">
+                    <div class="recommended-product-name">Елка искусственная</div>
+                    <div class="product-color">премиум 210см</div>
+                    <div class="recommended-price">29 995₽ / шт</div>
+                </div>
+            </div>
+
+            <div class="recommended-product third-recommended">
+                <div class="product-image-container">
+                    <img src="images/rec3.png" alt="Гирлянда светодиодная" class="recommended-photo">
+                    <div class="product-number">3</div>
+                </div>
+                <div class="product-info">
+                    <div class="recommended-product-name">Гирлянда светодиодная</div>
+                    <div class="product-color">100м</div>
+                    <div class="recommended-price">2 995₽ / шт</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <script>
+    // Общие функции для обеих страниц
+    function navigateToPage(url) {
+        saveCurrentState();
+        
+        const transition = document.createElement('div');
+        transition.className = 'page-transition active';
+        document.body.appendChild(transition);
+        
+        setTimeout(() => {
+            window.location.href = url;
+        }, 300);
+    }
+
+    function saveCurrentState() {
+        const inputs = document.querySelectorAll('.form-input');
+        const selectedVariant = document.querySelector('.product-variant.selected');
+        const selectedColor = document.querySelector('.color-option.active');
+        
+        inputs.forEach((input, index) => {
+            localStorage.setItem(`igrushki_input_${index}`, input.value);
+        });
+        
+        // Сохраняем выбор игрушек через imageMapper
+        if (selectedVariant && selectedColor) {
+            window.imageMapper.saveToysSelection(selectedVariant, selectedColor);
+        }
+        
+        localStorage.setItem('currentPage', 'igrushki');
+    }
+
+    function loadSavedState() {
+        const inputs = document.querySelectorAll('.form-input');
+        const savedVariant = localStorage.getItem('igrushki_selectedVariant');
+        const savedColor = localStorage.getItem('selectedColor');
+        
+        inputs.forEach((input, index) => {
+            const savedValue = localStorage.getItem(`igrushki_input_${index}`);
+            if (savedValue) input.value = savedValue;
+        });
+        
+        if (savedVariant) {
+            document.querySelectorAll('.product-variant').forEach(variant => {
+                variant.classList.remove('selected');
+            });
+            document.querySelector(`.product-variant.${savedVariant}`)?.classList.add('selected');
+        }
+        
+        if (savedColor) {
+            document.querySelectorAll('.color-option').forEach(opt => {
+                opt.classList.remove('active');
+                if (savedColor === 'gradient' && opt.classList.contains('gradient-color')) {
+                    opt.classList.add('active');
+                } else if (opt.style.backgroundColor === savedColor) {
+                    opt.classList.add('active');
+                }
+            });
+        }
+        
+        updateTreeImage();
+    }
+
+    function updateTreeImage() {
+        const productImage = document.getElementById('mainProductImage');
+        const selectedVariant = document.querySelector('.product-variant.selected');
+        const activeColor = document.querySelector('.color-option.active');
+        
+        if (!activeColor || !selectedVariant) return;
+        
+        const bgColor = activeColor.style.backgroundColor;
+        const isGradient = activeColor.classList.contains('gradient-color');
+        const variantType = selectedVariant.classList[1];
+        
+        // Базовые пути для изображений
+        const imageMap = {
+            economy: {
+                gradient: 'images/egradient.png',
+                'rgb(255, 215, 73)': 'images/econonjel.png',
+                'rgb(181, 75, 15)': 'images/ekor.png',
+                'rgb(229, 232, 242)': 'images/ewhite.png',
+                'rgb(21, 227, 227)': 'images/eb.png',
+                'rgb(201, 48, 255)': 'images/efi.png',
+                'rgb(255, 0, 245)': 'images/ero.png',
+                'rgb(25, 214, 55)': 'images/egr.png',
+                'rgb(244, 16, 16)': 'images/ered.png'
+            },
+            standard: {
+                gradient: 'images/sgradient.png',
+                'rgb(255, 215, 73)': 'images/sjelt.png',
+                'rgb(181, 75, 15)': 'images/skor.png',
+                'rgb(229, 232, 242)': 'images/swhite.png',
+                'rgb(21, 227, 227)': 'images/sb.png',
+                'rgb(201, 48, 255)': 'images/sfi.png',
+                'rgb(255, 0, 245)': 'images/sro.png',
+                'rgb(25, 214, 55)': 'images/sgr.png',
+                'rgb(244, 16, 16)': 'images/sred.png'
+            },
+            premium: {
+                gradient: 'images/pgradient.png',
+                'rgb(255, 215, 73)': 'images/pjelt.png',
+                'rgb(181, 75, 15)': 'images/pkor.png',
+                'rgb(229, 232, 242)': 'images/pwhite.png',
+                'rgb(21, 227, 227)': 'images/pb.png',
+                'rgb(201, 48, 255)': 'images/pfi.png',
+                'rgb(255, 0, 245)': 'images/pro.png',
+                'rgb(25, 214, 55)': 'images/pgr.png',
+                'rgb(244, 16, 16)': 'images/pred.png'
+            }
+        };
+        
+        const colorKey = isGradient ? 'gradient' : bgColor;
+        const imagePath = imageMap[variantType]?.[colorKey];
+        
+        if (imagePath) {
+            productImage.src = imagePath;
+        }
+    }
+
+    function createSnowflakes() {
+        const body = document.body;
+        
+        for (let i = 0; i < 50; i++) {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            
+            const size = Math.random() * 5 + 2;
+            const left = Math.random() * 100;
+            const duration = Math.random() * 5 + 5;
+            const delay = Math.random() * 5;
+            
+            snowflake.style.width = `${size}px`;
+            snowflake.style.height = `${size}px`;
+            snowflake.style.left = `${left}%`;
+            snowflake.style.animationDuration = `${duration}s`;
+            snowflake.style.animationDelay = `${delay}s`;
+            
+            body.appendChild(snowflake);
+        }
+    }
+
+    // Инициализация
+    document.addEventListener('DOMContentLoaded', function() {
+        // Навигация
+        document.querySelectorAll('a[href="girlyandi.html"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                navigateToPage(this.href);
+            });
+        });
+        
+        // Снегопад
+        document.getElementById('snowToggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            
+            if (this.classList.contains('active')) {
+                createSnowflakes();
+            } else {
+                document.querySelectorAll('.snowflake').forEach(snow => snow.remove());
+            }
+        });
+        
+        // Цвета
+        document.querySelectorAll('.color-option').forEach(color => {
+            color.addEventListener('click', function() {
+                document.querySelectorAll('.color-option').forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                saveCurrentState();
+                updateTreeImage();
+            });
+        });
+        
+        // Варианты
+        document.querySelectorAll('.product-variant').forEach(variant => {
+            variant.addEventListener('click', function() {
+                document.querySelectorAll('.product-variant').forEach(v => v.classList.remove('selected'));
+                this.classList.add('selected');
+                saveCurrentState();
+                updateTreeImage();
+            });
+        });
+        
+        // Загрузка состояния
+        loadSavedState();
+        
+        // Плавное появление
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => {
+            document.body.style.opacity = '1';
+        }, 50);
+    });
+</script>
+
+<script src="calculator-logic.js"></script>
+<script>
+// Функция для обновления расчетов на странице игрушек
+function updateCalculations() {
+    const heightInput = document.querySelector('.form-input');
+    const height = parseFloat(heightInput.value);
+    
+    // Если поле пустое или не число - сбрасываем
+    if (!height || height <= 0) {
+        resetCalculatorFields();
+        localStorage.removeItem('toysResult');
+        localStorage.removeItem('treeHeight');
+        return;
+    }
+    
+    // Получаем выбранный вариант игрушек
+    const selectedVariant = document.querySelector('.product-variant.selected');
+    const variantType = selectedVariant ? selectedVariant.classList[1] : 'economy';
+    
+    // Выполняем расчет ТОЛЬКО игрушек
+    const results = calculateToys(height, variantType);
+    
+    // Обновляем диаметр
+    const diameterInput = document.querySelectorAll('.form-input')[1];
+    if (diameterInput) {
+        diameterInput.value = results.diameter;
+    }
+    
+    // Обновляем результаты
+    const resultItems = document.querySelectorAll('.result-value');
+    if (resultItems.length >= 4) {
+        resultItems[0].textContent = results.toys + ' шт.';
+        resultItems[1].textContent = '0 м.'; // Всегда 0 на странице игрушек
+        resultItems[2].textContent = '0 шт.';
+        resultItems[3].textContent = '0 шт.';
+    }
+    
+    // Сохраняем результат игрушек и высоту
+    localStorage.setItem('toysResult', results.toys);
+    localStorage.setItem('treeHeight', height);
+}
+
+// Инициализация при загрузке
+document.addEventListener('DOMContentLoaded', function() {
+    // Устанавливаем высоту из localStorage
+    const savedHeight = setHeightFromStorage();
+    const savedToys = localStorage.getItem('toysResult');
+    
+    if (savedHeight && savedToys) {
+        updateCalculations();
+    } else {
+        resetCalculatorFields();
+    }
+    
+    // Обработчик изменения высоты
+    const heightInput = document.querySelector('.form-input');
+    heightInput.addEventListener('input', updateCalculations);
+    
+    // Обработчик очистки поля
+    heightInput.addEventListener('blur', function() {
+        if (!this.value || this.value <= 0) {
+            resetCalculatorFields();
+            localStorage.removeItem('toysResult');
+            localStorage.removeItem('treeHeight');
+        }
+    });
+    
+    // Обработчики для вариантов игрушек
+    document.querySelectorAll('.product-variant').forEach(variant => {
+        variant.addEventListener('click', function() {
+            document.querySelectorAll('.product-variant').forEach(v => v.classList.remove('selected'));
+            this.classList.add('selected');
+            
+            // Пересчитываем только если есть высота
+            const heightInput = document.querySelector('.form-input');
+            if (heightInput.value && heightInput.value > 0) {
+                updateCalculations();
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>
