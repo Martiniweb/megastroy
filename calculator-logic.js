@@ -164,3 +164,16 @@ function setHeightFromStorage() {
     }
     return null;
 }
+
+// Функция для получения сохраненных данных об игрушках
+function getSavedToysData() {
+    const savedToys = localStorage.getItem('toysResult');
+    const savedVariant = localStorage.getItem('selectedVariant');
+    const savedColor = localStorage.getItem('selectedColor');
+    
+    return {
+        toys: savedToys ? parseInt(savedToys) : 0,
+        variant: savedVariant || 'economy',
+        color: savedColor || 'rgba(255, 215, 73, 1)'
+    };
+}
